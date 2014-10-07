@@ -52,6 +52,12 @@
   <ItemGroup>
     <Folder Include="Content\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CastleContent\CastleContent\CastleContent.csproj">
+      <Project>{3BFA3BBB-9491-4A51-95FF-2830D059E8BF}</Project>
+      <Name>CastleContent</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
