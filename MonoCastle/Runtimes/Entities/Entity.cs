@@ -9,7 +9,13 @@ namespace MonoCastle.Runtimes
 {
     class Entity:IObject
     {
-        Vector2 Position;
+        public Vector2 position;
+        public Vector2 Position
+        {
+            get { return position; }
+            set { position = value; }
+        }
+
         public void OnLoop(float frameTime){}
         public void OnDraw(){}
     }

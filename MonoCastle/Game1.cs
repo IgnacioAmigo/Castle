@@ -19,12 +19,18 @@ namespace MonoCastle
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         Texture2D logo;
+        Runtimes.Character player;
+        int heightScreen;
 
         public Game1()
             : base()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+
+            heightScreen = graphics.PreferredBackBufferHeight;
+
+            player = new Runtimes.Character(new Vector2(50, 50));
         }
 
         /// <summary>
@@ -48,7 +54,10 @@ namespace MonoCastle
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            player.SprBatch = spriteBatch;
+
             logo = (Texture2D)Content.Load<Texture2D>("Test/CoE");
+            player.sprite = Content.Load<Texture2D>("Test/pixel");
 
             // TODO: use this.Content to load your game content here
         }
@@ -74,6 +83,8 @@ namespace MonoCastle
 
             // TODO: Add your update logic here
 
+            player.OnLoop(heightScreen);
+
             base.Update(gameTime);
         }
 
@@ -84,9 +95,9 @@ namespace MonoCastle
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
-            spriteBatch.Begin();
-            spriteBatch.Draw(logo, new Rectangle(0, 0, logo.Width, logo.Height), Color.White);
-            spriteBatch.End();
+
+            player.OnDraw();
+
             // TODO: Add your drawing code here
 
             base.Draw(gameTime);

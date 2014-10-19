@@ -38,6 +38,12 @@
     <Compile Include="Game1.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Runtimes\Entities\Character.cs" />
+    <Compile Include="Runtimes\Entities\Entity.cs" />
+    <Compile Include="Runtimes\Entities\SpriteEntity.cs" />
+    <Compile Include="Runtimes\EntityManager.cs" />
+    <Compile Include="Runtimes\IObject.cs" />
+    <Compile Include="Runtimes\Level.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">

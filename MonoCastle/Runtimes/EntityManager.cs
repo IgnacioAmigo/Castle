@@ -8,7 +8,12 @@ namespace MonoCastle.Runtimes
 {
     class EntityManager:IObject
     {
-        List<Entity> Entities;
+        public List<Entity> entities;
+        internal List<Entity> Entities
+        {
+            get { return entities; }
+            set { entities = value; }
+        }
 
         public EntityManager()
         {
