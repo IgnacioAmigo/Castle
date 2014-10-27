@@ -5,8 +5,13 @@ using System.Text;
 
 namespace MonoCastle.Level
 {
-    class Tile
+    public class Tile
     {
+        public Tile(int pindex) 
+        {
+            index = pindex;
+        }
+
         private int index;
         public int Index
         {

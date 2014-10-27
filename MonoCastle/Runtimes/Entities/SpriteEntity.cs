@@ -7,9 +7,11 @@ using Microsoft.Xna.Framework;
 
 namespace MonoCastle.Runtimes
 {
-    class SpriteEntity:Entity
+    public class SpriteEntity:Entity
     {
         public Texture2D sprite;
+        public static SpriteBatch sprBatch;
+
         public Texture2D Sprite
         {
             get { return sprite; }

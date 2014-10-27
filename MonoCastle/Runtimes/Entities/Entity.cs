@@ -7,11 +7,11 @@ using Microsoft.Xna.Framework;
 
 namespace MonoCastle.Runtimes
 {
-    class Entity:IObject
+    public class Entity:IObject
     {
         public Vector2 position;
 
-        public void OnLoop(float frameTime){}
-        public void OnDraw(){}
+        public virtual void OnLoop(float frameTime){}
+        public virtual void OnDraw(){}
     }
 }

@@ -8,11 +8,12 @@ using Microsoft.Xna.Framework.Input;
 
 namespace MonoCastle.Runtimes
 {
-    class Character:SpriteEntity
+    public class Character:SpriteEntity
     {
         public Character(Vector2 p)
         {
             position = p;
+            Sprite = Game1.PlayerSprite;
         }
 
         private int width;
@@ -43,11 +44,12 @@ namespace MonoCastle.Runtimes
             set { onGround = value; }
         }
 
-        public SpriteBatch SprBatch;
-
-        public void OnLoop(int positionPiso)
+        public override void OnLoop(float frametime)
         {
             KeyboardState state = Keyboard.GetState();
+
+            int screenWidth = Game1.Get().currentLevel.ScreenWidth;
+            int screenHeight = Game1.Get().currentLevel.ScreenHeight;
 
             //movimiento horizontal
             speed.X = 1.56f;
@@ -55,7 +57,7 @@ namespace MonoCastle.Runtimes
             if (state.IsKeyDown(Keys.Right)) position.X = position.X + speed.X;
 
             //mecanica del salto
-            onGround = position.Y + height >= (float)positionPiso;
+            onGround = position.Y + height >= (float)screenHeight;
             if (onGround && state.IsKeyDown(Keys.Up)) speed.Y = -3.5f;
 
             //movimiento vertical
@@ -64,11 +66,24 @@ namespace MonoCastle.Runtimes
             position.Y = position.Y + speed.Y;
 
             //respuesta vertical del piso
-            if (position.Y + height >= (float)positionPiso)
+            if (position.Y + height >= (float)screenHeight)
             {
                 speed.Y = 0;
                 gravity = 0;
-                position.Y = positionPiso - height;
+                position.Y = screenHeight - height;
+            }
+
+            //colision paredes
+            if (position.X < 0.0f)
+            {
+                speed.X = 0f;
+                position.X = 0;
+            }
+
+            if (position.X + width > screenWidth)
+            {
+                speed.X = 0f;
+                position.X = screenWidth - width;
             }
 
             //reset position button
@@ -81,14 +96,14 @@ namespace MonoCastle.Runtimes
 
         }
 
-        public void OnDraw()
+        public override void OnDraw()
         {
             width = 45;
             height = 80;
             Rectangle r = new Rectangle((int)position.X, (int)position.Y, width, height);
-            SprBatch.Begin();
-            SprBatch.Draw(sprite, r, Color.White);
-            SprBatch.End();
+            sprBatch.Begin();
+            sprBatch.Draw(sprite, r, Color.White);
+            sprBatch.End();
         }
 
 

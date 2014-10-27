@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework;
 
 namespace MonoCastle.Runtimes
 {
-    class EntityManager:IObject
+    public class EntityManager:IObject
     {
         public List<Entity> entities;
         internal List<Entity> Entities
@@ -30,6 +30,8 @@ namespace MonoCastle.Runtimes
         {
             foreach (Entity ent in Entities)
                 ent.OnDraw();
+
+
         }
 
         public virtual void OnDrawPartial(Rectangle viewPort)
