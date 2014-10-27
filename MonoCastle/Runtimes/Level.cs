@@ -9,7 +9,7 @@ using MonoCastle.Level;
 
 namespace MonoCastle.Runtimes
 {
-    public class Level:IObject
+    public class Level :IObject
     {
         public Level()
         {
@@ -70,6 +70,8 @@ namespace MonoCastle.Runtimes
             DrawGUI = true;
 
             Player = new Character(new Vector2(50, 50));
+
+            changeScreenSize(Game1.Get().screenWidth, Game1.Get().screenHeight);
 
             LevelEntities = new EntityManager();
             levelEntities.entities.Add(player);

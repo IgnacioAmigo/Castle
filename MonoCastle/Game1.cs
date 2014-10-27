@@ -26,8 +26,8 @@ namespace MonoCastle
 
         public Runtimes.Level currentLevel;
 
-        int screenHeight;
-        int screenWidth;
+        public int screenHeight;
+        public int screenWidth;
 
         public static Texture2D PlayerSprite;
         public static Texture2D TileSet;
