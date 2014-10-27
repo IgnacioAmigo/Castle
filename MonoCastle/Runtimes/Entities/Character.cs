@@ -53,7 +53,7 @@ namespace MonoCastle.Runtimes
 
             //movimiento horizontal
             speed.X = 1.56f;
-            if (state.IsKeyDown(Keys.Left)) position.X = position.X - speed.X;
+            if (state.IsKeyDown(Keys.Left))  position.X = position.X - speed.X; 
             if (state.IsKeyDown(Keys.Right)) position.X = position.X + speed.X;
 
             //mecanica del salto

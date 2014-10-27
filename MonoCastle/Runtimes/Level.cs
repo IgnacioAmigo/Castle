@@ -83,7 +83,7 @@ namespace MonoCastle.Runtimes
             
             for (int i=0; i < tileMap.TileArray.GetLength(0); i++)
                 for (int j = 0; j < tileMap.TileArray.GetLength(1); j++)
-                    TileMap.TileArray[i, j] = new Tile(j + i* 16);
+                    TileMap.TileArray[i, j] = new Tile(j + i* tileMap.TilesPerRow);
         }
 
         public void OnLoop(float frameTime)
@@ -101,8 +101,8 @@ namespace MonoCastle.Runtimes
 
         public void OnDraw()
         {
-            tileMap.OnDraw();
             LevelEntities.OnDraw();
+            tileMap.OnDraw();
 
             if (DrawGUI)
                 OnDrawGUI(); 

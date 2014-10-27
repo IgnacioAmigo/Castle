@@ -19,7 +19,7 @@ namespace MonoCastle.Level
 
         public TileMap()
         {
-            tileArray = new Tile[40, 25];
+            tileArray = new Tile[16, 24];
         }
 
         private Texture2D tileSet;
